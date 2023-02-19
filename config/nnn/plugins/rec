@@ -1,0 +1,2 @@
+source /Users/Auguste/.config/nnn/plugins/.nnn-plugin-helper
+nnn_cd "$( sort -n /Users/Auguste/Library/autojump/autojump.txt | cut -f2- | fzf --layout=reverse --tac)"

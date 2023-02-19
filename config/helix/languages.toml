@@ -1,0 +1,24 @@
+[[language]]
+name = "nim"
+scope = "source.nim"
+injection-regex = "nim"
+file-types = ["nim"]
+roots = ["*.nimble"]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+language-server = { command = "nimlsp", args = [] }
+
+[[grammar]]
+name = "nim"
+source = { git = "https://github.com/haxscramper/tree-sitter-nim", rev = "c29c40477f2bd6f4f2e98082fb908a6a688281d7" }
+
+[[language]]
+name = "python"
+formatter = { command = "ufmt", args = ["-q", "format", "-"] }
+auto-format = true
+
+[[language]]
+name = "nix"
+formatter = { command = "nixfmt" }
+auto-format = true
+

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # This value determines the Home Manager release that your
@@ -15,27 +15,100 @@
   home.homeDirectory = "/Users/Auguste";
 
   programs = {
-    # Let Home Manager install and manage itself.
-    home-manager.enable = true;
+    bat = { enable = true; };
+    broot = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      stdlib = builtins.readFile ./config/direnv/direnvrc;
+      enableZshIntegration = true;
+    };
+    exa = { enable = true; };
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+      defaultOptions = [ "--extended" "--cycle" ];
+    };
     git = {
       enable = true;
       userName = "Auguste Baum";
       userEmail = "auguste.apple@gmail.com";
-      delta.enable = true;
-      includes = [{path = "~/.config/nixpkgs/git/config"; }];
+      delta = {
+        enable = true;
+        options = {
+          navigate = true;
+          light = true;
+        };
+      };
+      extraConfig = {
+        credential = { helper = "cache"; };
+        advice = { addIgnoredFile = false; };
+        filter = {
+          "lfs" = {
+            clean = "git-lfs clean -- %f";
+            smudge = "git-lfs smudge -- %f";
+            process = "git-lfs filter-process";
+            required = "true";
+          };
+        };
+        init = { defaultBranch = "main"; };
+        diff = {
+          colorMoved = "default";
+          tool = "opendiff";
+        };
+        merge = {
+          tool = "nvimdiff";
+          conflictstyle = "diff3";
+        };
+        mergetool = {
+          keepBackup = false;
+          "nvimdiff" = {
+            cmd = "nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'";
+          };
+        };
+        pager = {
+          branch = false;
+          log = false;
+        };
+        push = { autoSetupRemote = true; };
+        alias = {
+          revert-unstaged =
+            "!sh -c '{ git commit -m=tmp --no-verify && git reset --hard HEAD && git reset --soft HEAD^ || git reset --hard HEAD; } > /dev/null 2>&1; git status'";
+        };
+      };
     };
-    fzf = { enable = true; };
-    zoxide = { enable = true; };
-    direnv = {
+    helix = {
       enable = true;
-      nix-direnv.enable = true;
+      settings =
+        (builtins.fromTOML (builtins.readFile ./config/helix/config.toml));
+      # languages = (builtins.fromTOML (builtins.readFile ./config/helix/languages.toml));
     };
+    # Let Home Manager install and manage itself.
+    home-manager = { enable = true; };
+    neovim = { enable = true; };
+    nnn = {
+      enable = true;
+      bookmarks = {
+        d = "~/Desktop";
+        c = "~/.config";
+        n = "~/Documents/Nextcloud/Notes";
+      };
+      plugins = {
+        src = ./config/nnn/plugins;
+        mappings = {
+          g = "rec";
+          h = "fzopen";
+        };
+      };
+    };
+    zoxide = { enable = true; };
   };
 
-  home.packages = [
-    pkgs.ripgrep
-  ];
-  
+  home.packages = [ pkgs.ripgrep pkgs.nixfmt ];
+
   home.sessionVariables = {
     CONFIG = "${config.home.homeDirectory}/.config";
     XDG_CONFIG = "${config.home.sessionVariables.CONFIG}";
@@ -63,13 +136,12 @@
 
     ## flavours
     FLAVOURS_DATA_DIRECTORY = "${config.home.sessionVariables.SHARE}/flavours";
-    FLAVOURS_CONFIG_FILE = "${config.home.sessionVariables.CONFIG}/flavours/config.toml";
-
-    ## fzf
-    FZF_DEFAULT_OPTS = "--extended --cycle";
+    FLAVOURS_CONFIG_FILE =
+      "${config.home.sessionVariables.CONFIG}/flavours/config.toml";
 
     ## goku
-    GOKU_EDN_CONFIG_FILE = "${config.home.sessionVariables.CONFIG}/karabiner/karabiner.edn";
+    GOKU_EDN_CONFIG_FILE =
+      "${config.home.sessionVariables.CONFIG}/karabiner/karabiner.edn";
 
     ## grep
     GREP_OPTIONS = "--color=auto";
@@ -94,9 +166,11 @@
     NVIM_CONFIG_DIR = "${config.home.sessionVariables.CONFIG}/nvim/";
 
     ## pass
-    PASSWORD_STORE_DIR = "${config.home.sessionVariables.SHARE}/pass/.password-store";
+    PASSWORD_STORE_DIR =
+      "${config.home.sessionVariables.SHARE}/pass/.password-store";
     PASSWORD_STORE_ENABLE_EXTENSIONS = "true";
-    PASSWORD_STORE_EXTENSIONS_DIR = "${config.home.sessionVariables.PASSWORD_STORE_DIR}/.extensions";
+    PASSWORD_STORE_EXTENSIONS_DIR =
+      "${config.home.sessionVariables.PASSWORD_STORE_DIR}/.extensions";
 
     ## poetry
     POETRY_VIRTUALENVS_IN_PROJECT = "1";
@@ -105,7 +179,8 @@
     QMK_HOME = "${config.home.sessionVariables.CONFIG}/qmk/qmk_firmware";
 
     ## starship
-    STARSHIP_CONFIG = "${config.home.sessionVariables.CONFIG}/starship/config.toml";
+    STARSHIP_CONFIG =
+      "${config.home.sessionVariables.CONFIG}/starship/config.toml";
   };
 
   home.shellAliases = {
@@ -116,7 +191,8 @@
     "e." = "e .";
     "emacs=" = "emacs -nw";
     "gn" = "nvim -c Neogit";
-    "hms" = "home-manager switch --flake 'path:${config.home.sessionVariables.CONFIG}/nixpkgs#${config.home.username}'";
+    "hms" =
+      "home-manager switch --flake 'path:${config.home.sessionVariables.CONFIG}/nixpkgs#${config.home.username}'";
     "ipt" = "ipython";
     "k" = "kak";
     "l" = "exa --all --long";
