@@ -107,7 +107,7 @@
     zoxide = { enable = true; };
   };
 
-  home.packages = [ pkgs.ripgrep pkgs.nixfmt ];
+  home.packages = [ pkgs.ripgrep pkgs.nixfmt pkgs.dura ];
 
   home.sessionVariables = {
     CONFIG = "${config.home.homeDirectory}/.config";
