@@ -105,6 +105,10 @@
       };
     };
     zoxide = { enable = true; };
+    zsh = {
+      enable = true;
+      initExtra = builtins.readFile ./config/zsh/zshrc;
+    };
   };
 
   home.packages = [ pkgs.ripgrep pkgs.nixfmt pkgs.dura ];
