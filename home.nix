@@ -157,10 +157,10 @@
     ## nnn
     NNN_OPTS = "He";
     # Use trash-cli instead of rm
-    NNN_TRASH = "1";
+    NNN_TRASH = true;
     NNN_CONTEXT_COLORS = "4312";
     # Plugin shortcuts
-    NNN_PLUG = "g:rec;h:fzopen";
+    # NNN_PLUG = "g:rec;h:fzopen";
     # Custom 'open' script
     NNN_OPENER = "${CONFIG}/nnn/plugins/nuke";
 
