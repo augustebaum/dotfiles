@@ -169,11 +169,11 @@
 
     ## pass
     PASSWORD_STORE_DIR = "${SHARE}/pass/.password-store";
-    PASSWORD_STORE_ENABLE_EXTENSIONS = true;
+    PASSWORD_STORE_ENABLE_EXTENSIONS = "true";
     PASSWORD_STORE_EXTENSIONS_DIR = "${PASSWORD_STORE_DIR}/.extensions";
 
     ## poetry
-    POETRY_VIRTUALENVS_IN_PROJECT = true;
+    POETRY_VIRTUALENVS_IN_PROJECT = "1";
 
     ## qmk
     QMK_HOME = "${CONFIG}/qmk/qmk_firmware";
