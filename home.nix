@@ -111,47 +111,45 @@
     };
   };
 
-  home.packages = [ pkgs.ripgrep pkgs.nixfmt pkgs.dura ];
+  home.packages = [ pkgs.ripgrep pkgs.nixfmt pkgs.dura pkgs.micromamba ];
 
-  home.sessionVariables = {
+  home.sessionVariables = rec {
     CONFIG = "${config.home.homeDirectory}/.config";
-    XDG_CONFIG = "${config.home.sessionVariables.CONFIG}";
+    XDG_CONFIG = "${CONFIG}";
     SHARE = "${config.home.homeDirectory}/.local/share";
 
     EDITOR = "hx";
-    VISUAL = "${config.home.sessionVariables.EDITOR}";
-    GIT_EDITOR = "${config.home.sessionVariables.EDITOR}";
+    VISUAL = "${EDITOR}";
+    GIT_EDITOR = "${EDITOR}";
     LESS = "-imJMWR";
-    PAGER = "less ${config.home.sessionVariables.LESS}";
-    MANPAGER = "${config.home.sessionVariables.PAGER}";
-    GIT_PAGER = "${config.home.sessionVariables.PAGER}";
+    PAGER = "less ${LESS}";
+    MANPAGER = "${PAGER}";
+    GIT_PAGER = "${PAGER}";
     BROWSER = "qutebrowser";
 
     LANG = "en_US.UTF-8";
-    LC_ALL = "${config.home.sessionVariables.LANG}";
+    LC_ALL = "${LANG}";
     LC_COLLATE = "C";
     LSCOLORS = "gxfxcxdxbxegedabagacad";
 
     ## cargo
-    CARGO_HOME = "${config.home.sessionVariables.CONFIG}/cargo";
+    CARGO_HOME = "${CONFIG}/cargo";
 
     ## doom-emacs
-    DOOMDIR = "${config.home.sessionVariables.CONFIG}/doom";
+    DOOMDIR = "${CONFIG}/doom";
 
     ## flavours
-    FLAVOURS_DATA_DIRECTORY = "${config.home.sessionVariables.SHARE}/flavours";
-    FLAVOURS_CONFIG_FILE =
-      "${config.home.sessionVariables.CONFIG}/flavours/config.toml";
+    FLAVOURS_DATA_DIRECTORY = "${SHARE}/flavours";
+    FLAVOURS_CONFIG_FILE = "${CONFIG}/flavours/config.toml";
 
     ## goku
-    GOKU_EDN_CONFIG_FILE =
-      "${config.home.sessionVariables.CONFIG}/karabiner/karabiner.edn";
+    GOKU_EDN_CONFIG_FILE = "${CONFIG}/karabiner/karabiner.edn";
 
     ## grep
     GREP_OPTIONS = "--color=auto";
 
     ## IPython
-    IPYTHONDIR = "${config.home.sessionVariables.CONFIG}/ipython";
+    IPYTHONDIR = "${CONFIG}/ipython";
 
     ## nix
     NIX_PAGER = "cat";
@@ -164,46 +162,43 @@
     # Plugin shortcuts
     NNN_PLUG = "g:rec;h:fzopen";
     # Custom 'open' script
-    NNN_OPENER = "${config.home.sessionVariables.CONFIG}/nnn/plugins/nuke";
+    NNN_OPENER = "${CONFIG}/nnn/plugins/nuke";
 
     ## nvim
-    NVIM_CONFIG_DIR = "${config.home.sessionVariables.CONFIG}/nvim/";
+    NVIM_CONFIG_DIR = "${CONFIG}/nvim";
 
     ## pass
-    PASSWORD_STORE_DIR =
-      "${config.home.sessionVariables.SHARE}/pass/.password-store";
+    PASSWORD_STORE_DIR = "${SHARE}/pass/.password-store";
     PASSWORD_STORE_ENABLE_EXTENSIONS = "true";
-    PASSWORD_STORE_EXTENSIONS_DIR =
-      "${config.home.sessionVariables.PASSWORD_STORE_DIR}/.extensions";
+    PASSWORD_STORE_EXTENSIONS_DIR = "${PASSWORD_STORE_DIR}/.extensions";
 
     ## poetry
     POETRY_VIRTUALENVS_IN_PROJECT = "1";
 
     ## qmk
-    QMK_HOME = "${config.home.sessionVariables.CONFIG}/qmk/qmk_firmware";
+    QMK_HOME = "${CONFIG}/qmk/qmk_firmware";
 
     ## starship
-    STARSHIP_CONFIG =
-      "${config.home.sessionVariables.CONFIG}/starship/config.toml";
+    STARSHIP_CONFIG = "${CONFIG}/starship/config.toml";
   };
 
-  home.shellAliases = {
-    "..." = "" ../.. "";
+  home.shellAliases = with config.home.sessionVariables; {
+    "..." = "../..";
     "cl" = "clear";
     "cm" = "chezmoi";
-    "e" = "${config.home.sessionVariables.EDITOR}";
+    "e" = "${EDITOR}";
     "e." = "e .";
-    "emacs=" = "emacs -nw";
+    "emacs" = "emacs -nw";
     "gn" = "nvim -c Neogit";
     "hms" =
-      "home-manager switch --flake 'path:${config.home.sessionVariables.CONFIG}/nixpkgs#${config.home.username}'";
+      "home-manager switch --flake 'path:${CONFIG}/nixpkgs#${config.home.username}'";
     "ipt" = "ipython";
     "k" = "kak";
     "l" = "exa --all --long";
     "ls" = "ls -AFHG";
     "m" = "mamba";
     "ne" = "nix-env";
-    "n" = "source ${config.home.sessionVariables.CONFIG}/scripts/n";
+    "n" = "source ${CONFIG}/scripts/n";
     "nd" = "mkdir";
     "nf" = "touch";
     "p" = "pijul";
