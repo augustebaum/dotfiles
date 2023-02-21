@@ -112,6 +112,7 @@
       plugins = {
         src = ./config/nnn/plugins;
         mappings = {
+          f = "jump";
           g = "rec";
           h = "fzopen";
         };
@@ -171,7 +172,7 @@
     NNN_TRASH = "1";
     NNN_CONTEXT_COLORS = "4312";
     # Plugin shortcuts
-    NNN_PLUG = "g:rec;h:fzopen";
+    # NNN_PLUG = "g:rec;h:fzopen";
     # Custom 'open' script
     NNN_OPENER = "${CONFIG}/nnn/plugins/nuke";
 
@@ -190,7 +191,7 @@
     QMK_HOME = "${CONFIG}/qmk/qmk_firmware";
 
     ## starship
-    STARSHIP_CONFIG = "${CONFIG}/starship/config.toml";
+    STARSHIP_CONFIG = builtins.toString ./config/starship/config.toml;
   };
 
   home.shellAliases = with config.home.sessionVariables; {
