@@ -224,7 +224,7 @@
     "tw" = "taskwarrior-tui";
     "v" = "nvim";
     "vi" = "nvim";
-    "z" = "zoxide query -i";
+    "zz" = "zoxide query -i";
 
     # Git
     "ga" = "git add";
