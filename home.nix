@@ -207,7 +207,9 @@
     "k" = "kak";
     "l" = "exa --all --long";
     "ls" = "ls -AFHG";
-    "m" = "mamba";
+    "m" = "micromamba";
+    "ma" = "micromamba activate";
+    "mi" = "micromamba install";
     "ne" = "nix-env";
     "n" = "source ${CONFIG}/scripts/n";
     "nd" = "mkdir";
@@ -221,6 +223,7 @@
     "tw" = "taskwarrior-tui";
     "v" = "nvim";
     "vi" = "nvim";
+    "zz" = "zoxide query -i";
 
     # Git
     "ga" = "git add";
