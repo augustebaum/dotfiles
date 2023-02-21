@@ -196,7 +196,7 @@
     "k" = "kak";
     "l" = "exa --all --long";
     "ls" = "ls -AFHG";
-    "m" = "mamba";
+    "m" = "micromamba";
     "ne" = "nix-env";
     "n" = "source ${CONFIG}/scripts/n";
     "nd" = "mkdir";
