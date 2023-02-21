@@ -112,6 +112,7 @@
   };
 
   home.packages = [
+    pkgs.cargo
     pkgs.dura
     pkgs.fd
     pkgs.micromamba
