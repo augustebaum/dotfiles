@@ -112,6 +112,7 @@
       plugins = {
         src = ./config/nnn/plugins;
         mappings = {
+          f = "jump";
           g = "rec";
           h = "fzopen";
         };
@@ -170,8 +171,6 @@
     # Use trash-cli instead of rm
     NNN_TRASH = "1";
     NNN_CONTEXT_COLORS = "4312";
-    # Plugin shortcuts
-    NNN_PLUG = "g:rec;h:fzopen";
     # Custom 'open' script
     NNN_OPENER = "${CONFIG}/nnn/plugins/nuke";
 
