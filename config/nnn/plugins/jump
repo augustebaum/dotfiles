@@ -23,15 +23,8 @@ if [ ! -p "$NNN_PIPE" ]; then
     exit 2
 fi
 
-if type fzf >/dev/null 2>&1; then
-    odir="$(zoxide query -i --)"
-    printf "%s" "0c$odir" > "$NNN_PIPE"
-else
-    printf "jump to : "
-    read -r dir
-    odir="$(zoxide query -- "$dir")"
-    printf "%s" "0c$odir" > "$NNN_PIPE"
-fi
+odir="$(zoxide query -i --)"
+printf "%s" "0c$odir" > "$NNN_PIPE"
 
 # if type zoxide >/dev/null 2>&1; then
 #     if type fzf >/dev/null 2>&1; then
