@@ -92,5 +92,3 @@ bindkey '^a' f
 
 # Starship
 eval "$(starship init zsh)"
-
-source $HOME/.profile
