@@ -197,6 +197,8 @@
     "l" = "exa --all --long";
     "ls" = "ls -AFHG";
     "m" = "micromamba";
+    "ma" = "micromamba activate";
+    "mi" = "micromamba install";
     "ne" = "nix-env";
     "n" = "source ${CONFIG}/scripts/n";
     "nd" = "mkdir";
