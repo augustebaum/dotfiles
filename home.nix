@@ -120,6 +120,7 @@
     pkgs.ripgrep
     pkgs.starship
     pkgs.tealdeer
+    pkgs.tectonic
   ];
 
   home.sessionVariables = rec {
