@@ -112,11 +112,11 @@
   };
 
   home.packages = [
-    pkgs.ripgrep
-    pkgs.nixfmt
     pkgs.dura
     pkgs.fd
     pkgs.micromamba
+    pkgs.nixfmt
+    pkgs.ripgrep
     pkgs.starship
   ];
 
