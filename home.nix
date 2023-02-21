@@ -117,9 +117,9 @@
     pkgs.fd
     pkgs.micromamba
     pkgs.nixfmt
-    pkgs.qutebrowser
     pkgs.ripgrep
     pkgs.starship
+    pkgs.teeldear
   ];
 
   home.sessionVariables = rec {
