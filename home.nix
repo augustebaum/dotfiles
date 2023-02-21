@@ -111,7 +111,14 @@
     };
   };
 
-  home.packages = [ pkgs.ripgrep pkgs.nixfmt pkgs.dura pkgs.micromamba ];
+  home.packages = [
+    pkgs.ripgrep
+    pkgs.nixfmt
+    pkgs.dura
+    pkgs.micromamba
+    pkgs.starship
+    pkgs.fd
+  ];
 
   home.sessionVariables = rec {
     CONFIG = "${config.home.homeDirectory}/.config";
