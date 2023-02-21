@@ -115,9 +115,9 @@
     pkgs.ripgrep
     pkgs.nixfmt
     pkgs.dura
+    pkgs.fd
     pkgs.micromamba
     pkgs.starship
-    pkgs.fd
   ];
 
   home.sessionVariables = rec {
