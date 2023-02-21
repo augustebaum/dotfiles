@@ -119,7 +119,7 @@
     pkgs.nixfmt
     pkgs.ripgrep
     pkgs.starship
-    pkgs.teeldear
+    pkgs.tealdeer
   ];
 
   home.sessionVariables = rec {
