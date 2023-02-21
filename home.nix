@@ -14,6 +14,19 @@
   home.username = "Auguste";
   home.homeDirectory = "/Users/Auguste";
 
+  home.packages = [
+    pkgs.agedu
+    pkgs.cargo
+    pkgs.dura
+    pkgs.fd
+    pkgs.micromamba
+    pkgs.nixfmt
+    pkgs.ripgrep
+    pkgs.starship
+    pkgs.tealdeer
+    pkgs.tectonic
+  ];
+
   programs = {
     bat = { enable = true; };
     broot = {
@@ -111,19 +124,6 @@
       initExtra = builtins.readFile ./config/zsh/zshrc;
     };
   };
-
-  home.packages = [
-    pkgs.agedu
-    pkgs.cargo
-    pkgs.dura
-    pkgs.fd
-    pkgs.micromamba
-    pkgs.nixfmt
-    pkgs.ripgrep
-    pkgs.starship
-    pkgs.tealdeer
-    pkgs.tectonic
-  ];
 
   home.sessionVariables = rec {
     CONFIG = "${config.home.homeDirectory}/.config";
