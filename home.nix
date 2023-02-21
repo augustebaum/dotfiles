@@ -117,6 +117,7 @@
     pkgs.fd
     pkgs.micromamba
     pkgs.nixfmt
+    pkgs.qutebrowser
     pkgs.ripgrep
     pkgs.starship
   ];
