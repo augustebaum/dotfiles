@@ -189,7 +189,7 @@
     QMK_HOME = "${CONFIG}/qmk/qmk_firmware";
 
     ## starship
-    STARSHIP_CONFIG = "${CONFIG}/starship/config.toml";
+    STARSHIP_CONFIG = builtins.toString ./config/starship/config.toml;
   };
 
   home.shellAliases = with config.home.sessionVariables; {
