@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
 # Description: Navigate to directory using zoxide
-#
 # Original authors: Marty Buchaus, Dave Snider, Tim Adler, Nick Waywood
 
 if [ ! -p "$NNN_PIPE" ]; then
