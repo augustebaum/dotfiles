@@ -113,6 +113,7 @@
   };
 
   home.packages = [
+    pkgs.agedu
     pkgs.cargo
     pkgs.dura
     pkgs.fd
