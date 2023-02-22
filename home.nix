@@ -24,7 +24,7 @@
     pkgs.ripgrep
     pkgs.starship
     pkgs.tealdeer
-    pkgs.tectonic
+    # pkgs.tectonic
   ];
 
   programs = {
