@@ -90,6 +90,7 @@
         alias = {
           revert-unstaged =
             "!sh -c '{ git commit -m=tmp --no-verify && git reset --hard HEAD && git reset --soft HEAD^ || git reset --hard HEAD; } > /dev/null 2>&1; git status'";
+          pushall = "!git remote | xargs -L1 git push --all";
         };
       };
     };
