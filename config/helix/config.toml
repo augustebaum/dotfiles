@@ -12,35 +12,41 @@ tab = "all"
 [keys.normal]
 C-q = ":quit!"
 "esc" = ":write"
-# M = ["visual_mode", "match_brackets"]
 "ret" = ["open_below", "normal_mode"]
+
+### Same for normal and select
+# "A-[" = ":buffer-previous"
+"A-]" = ":buffer-next"
+
 g = { j = "goto_last_line", k = "goto_file_start" }
 A-l = ["select_mode", "goto_line_end"]
 A-h = ["select_mode", "goto_line_start"]
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
 
+p = ":clipboard-paste-after"
+P = ":clipboard-paste-before"
+y = ":clipboard-yank-join"
+Y = ":clipboard-yank"
+R = ":clipboard-paste-replace"
+d = ["yank_joined_to_clipboard", "delete_selection"]
+### END Same for normal and select
+
+[keys.select]
+### Same for normal and select
 # "A-[" = ":buffer-previous"
 "A-]" = ":buffer-next"
 
-"y" = ":clipboard-yank-join"
-"p" = ":clipboard-paste-after"
-"P" = ":clipboard-paste-before"
-"d" = ["yank_joined_to_clipboard", "delete_selection"]
-"R" = ":clipboard-paste-replace"
-
-[keys.select]
 g = { j = "goto_last_line", k = "goto_file_start" }
 A-l = "goto_line_end"
 A-h = "goto_line_start"
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
 
-# "A-[" = ":buffer-previous"
-"A-]" = ":buffer-next"
-
-"y" = ":clipboard-yank-join"
-"p" = ":clipboard-paste-after"
-"P" = ":clipboard-paste-before"
-"d" = ["yank_joined_to_clipboard", "delete_selection"]
-"R" = ":clipboard-paste-replace"
+p = ":clipboard-paste-after"
+P = ":clipboard-paste-before"
+y = ":clipboard-yank-join"
+Y = ":clipboard-yank"
+R = ":clipboard-paste-replace"
+d = ["yank_joined_to_clipboard", "delete_selection"]
+### END Same for normal and select
