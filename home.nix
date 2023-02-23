@@ -48,8 +48,7 @@
     git = import ./config/git/config.nix;
     helix = {
       enable = true;
-      settings =
-        (builtins.fromTOML (builtins.readFile ./config/helix/config.toml));
+      settings = import ./config/helix/config.nix;
       # languages = (builtins.fromTOML (builtins.readFile ./config/helix/languages.toml));
     };
     # Let Home Manager install and manage itself.
