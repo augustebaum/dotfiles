@@ -64,7 +64,7 @@
       plugins = {
         src = ./config/nnn/plugins;
         mappings = {
-          f = "jump";
+          z = "jump";
           g = "rec";
           h = "fzopen";
         };
