@@ -28,20 +28,15 @@
 
   programs = {
     bat = { enable = true; };
-    broot = {
-      enable = true;
-      enableZshIntegration = true;
-    };
+    broot = { enable = true; };
     direnv = {
       enable = true;
       nix-direnv.enable = true;
       stdlib = builtins.readFile ./config/direnv/direnvrc;
-      enableZshIntegration = true;
     };
     exa = { enable = true; };
     fzf = {
       enable = true;
-      enableZshIntegration = true;
       defaultOptions = [ "--extended" "--cycle" ];
     };
     git = import ./config/git/config.nix;
