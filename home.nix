@@ -22,7 +22,6 @@
     pkgs.micromamba
     pkgs.nixfmt
     pkgs.ripgrep
-    pkgs.starship
     pkgs.tealdeer
     # pkgs.tectonic
   ];
@@ -69,6 +68,11 @@
           h = "fzopen";
         };
       };
+    };
+    starship = {
+      enable = true;
+      settings =
+        (builtins.fromTOML (builtins.readFile ./config/starship/config.toml));
     };
     wezterm = {
       enable = true;
@@ -143,9 +147,6 @@
 
     ## qmk
     QMK_HOME = "${CONFIG}/qmk/qmk_firmware";
-
-    ## starship
-    STARSHIP_CONFIG = builtins.toString ./config/starship/config.toml;
   };
 
   home.shellAliases = with config.home.sessionVariables; {
