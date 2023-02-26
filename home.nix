@@ -75,10 +75,7 @@
       enable = true;
       extraConfig = builtins.readFile ./config/wezterm/wezterm.lua;
     };
-    zathura = {
-      enable = true;
-      extraConfig = builtins.readFile ./config/zathura/zathurarc;
-    };
+    zathura = import ./config/zathura/config.nix;
     zoxide = { enable = true; };
     zsh = {
       enable = true;
