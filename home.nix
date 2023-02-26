@@ -12,18 +12,20 @@
   home.stateVersion = "23.05";
 
   home.username = "Auguste";
-  home.homeDirectory = "/Users/Auguste";
+  home.homeDirectory = /Users/Auguste;
 
-  home.packages = [
-    pkgs.agedu
-    pkgs.cargo
-    pkgs.dura
-    pkgs.fd
-    pkgs.micromamba
-    pkgs.nixfmt
-    pkgs.ripgrep
-    pkgs.tealdeer
-    # pkgs.tectonic
+  home.packages = with pkgs; [
+    agedu
+    cargo
+    dura
+    fd
+    jq
+    micromamba
+    nixfmt
+    ripgrep
+    tealdeer
+    tree
+    # tectonic
   ];
 
   programs = {
@@ -90,13 +92,17 @@
     SHARE = "${config.home.homeDirectory}/.local/share";
 
     EDITOR = "hx";
-    VISUAL = "${EDITOR}";
     GIT_EDITOR = "${EDITOR}";
+    VISUAL = "${EDITOR}";
+
     LESS = "-imJMWR";
     PAGER = "less ${LESS}";
     MANPAGER = "${PAGER}";
     GIT_PAGER = "${PAGER}";
+
     BROWSER = "qutebrowser";
+
+    TERMINAL = "wezterm";
 
     LANG = "en_US.UTF-8";
     LC_ALL = "${LANG}";
