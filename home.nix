@@ -182,7 +182,6 @@
     v = "nvim";
     vi = "nvim";
     zat = "source ${toString ./config/scripts}/zat";
-    zz = "zoxide query -i";
 
     # Git
     ga = "git add";
