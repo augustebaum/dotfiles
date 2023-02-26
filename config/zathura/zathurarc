@@ -1,0 +1,49 @@
+set selection-clipboard clipboard
+
+
+### Mappings
+## Zoom
+# Width
+map   =     adjust_window width
+# Height
+map   |     adjust_window best-fit
+
+map   <C-s> toggle_statusbar
+unmap <C-n> toggle_statusbar
+
+map   <C-i> toggle_inputbar
+unmap <C-m> toggle_inputbar
+# map [normal]       <C-m> change_mode presentation
+# map [presentation] <C-m> change_mode normal
+
+map u scroll half-up
+unmap <C-u> scroll half-up
+
+map d scroll half-down
+map <C-d> toggle_page_mode
+
+map f scroll full-down
+map <C-f> follow specific
+
+map b scroll full-up
+unmap <C-b>
+
+# set synctex true
+# set synctex-editor-command "gvim --remote-silent +%{line} %{input}"
+
+### Visual
+# Use relative path of document in status bar
+set statusbar-basename true
+
+# Font
+set font "Rec Mono Semicasual 15"
+
+# Flavours base-16 scheme
+include flavours
+
+# In BW mode by default
+set recolor true
+# When in BW mode, images still have color (buggy)
+# set recolor-reverse-video true
+# When in BW mode, file keeps its hue
+# set recolor-keephue true
