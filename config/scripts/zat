@@ -1,0 +1,11 @@
+#! /bin/sh
+
+pdf_dir=~/Desktop/Nextcloud/ZoteroLib
+
+# The number of directories to traverse in $pdf_dir
+# Note: if $pdf_dir is a symlink, $n should be the depth
+# of the linked directory (not the link)
+# TODO: Write a function for this
+depth=7
+
+fd . --extension pdf $pdf_dir | fzf -d '/' --with-nth=$depth | xargs -I% zathura --fork %

@@ -166,7 +166,7 @@
     "ma" = "micromamba activate";
     "mi" = "micromamba install";
     "ne" = "nix-env";
-    "n" = "source ${CONFIG}/scripts/n";
+    "n" = "source ${toString ./config/scripts}/n";
     "nd" = "mkdir";
     "nf" = "touch";
     "p" = "pijul";
@@ -178,6 +178,7 @@
     "tw" = "taskwarrior-tui";
     "v" = "nvim";
     "vi" = "nvim";
+    "zat" = "source ${toString ./config/scripts}/zat";
     "zz" = "zoxide query -i";
 
     # Git
