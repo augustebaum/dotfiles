@@ -10,15 +10,13 @@
     # Font
     font = "Rec Mono Semicasual 15";
 
-    # In BW mode by default
-    recolor = true;
-
     # synctex = true;
     # synctex-editor-command = "gvim --remote-silent +%{line} %{input}";
 
+    # In BW mode by default
+    recolor = true;
     # # When in BW mode, images still have color (buggy)
     # recolor-reverse-video = true;
-
     # # When in BW mode, file keeps its hue
     # recolor-keephue = true;
   };
