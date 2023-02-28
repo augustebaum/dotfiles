@@ -1,5 +1,14 @@
-function scheme_for_appearance(appearance)
-  if appearance:find "Dark" then
+-- local function scheme_for_appearance(appearance)
+--   if appearance:find "Dark" then
+--     return "Catppuccin Frappe"
+--   else
+--     return "Catppuccin Latte"
+--   end
+-- end
+
+local function get_theme()
+  local _time = os.date("*t")
+  if _time.hour >= 17 or _time.hour < 9 then
     return "Catppuccin Frappe"
   else
     return "Catppuccin Latte"
@@ -14,7 +23,8 @@ return {
   font_size = 12,
   enable_tab_bar = false,
 
-  color_scheme = "flavours",
+  color_scheme = get_theme(),
+  -- color_scheme = "flavours",
   -- color_scheme = scheme_for_appearance(wezterm.gui.get_appearance()),
 
   window_padding = {
