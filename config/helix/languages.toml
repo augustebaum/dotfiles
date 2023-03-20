@@ -14,7 +14,9 @@ source = { git = "https://github.com/haxscramper/tree-sitter-nim", rev = "c29c40
 
 [[language]]
 name = "python"
+language-server = { command = "ruff-lsp" }
 formatter = { command = "ufmt", args = ["-q", "format", "-"] }
+# formatter = { command = "ruff", args = ["--fix", "-q", "-"] }
 auto-format = true
 
 [[language]]

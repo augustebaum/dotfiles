@@ -20,7 +20,7 @@ return {
     "FiraCode Nerd Font Mono",
     {weight="Medium"}
   ),
-  font_size = 12,
+  font_size = 11,
   enable_tab_bar = false,
 
   color_scheme = get_theme(),
