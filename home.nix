@@ -153,6 +153,7 @@
 
   home.shellAliases = with config.home.sessionVariables; {
     "..." = "../..";
+    cf = "$EDITOR ${CONFIG}";
     cl = "clear";
     cm = "chezmoi";
     e = "${EDITOR}";
@@ -167,6 +168,7 @@
     ls = "ls -AFHG";
     m = "micromamba";
     ma = "micromamba activate";
+    md = "micromamba deactivate";
     mi = "micromamba install";
     ne = "nix-env";
     n = "source ${toString ./config/scripts}/n";
