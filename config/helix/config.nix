@@ -6,6 +6,7 @@
     auto-save = true;
     bufferline = "multiple";
     whitespace.render.tab = "all";
+    rulers = [ 80 ];
   };
 
   keys = let
