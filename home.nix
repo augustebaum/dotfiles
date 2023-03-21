@@ -151,6 +151,12 @@
     QMK_HOME = "${CONFIG}/qmk/qmk_firmware";
   };
 
+  home.sessionPath = [
+    # Ideally I would add Rust programs to this config
+    # rather than getting them here
+    "${config.home.sessionVariables.CARGO_HOME}/bin"
+  ];
+
   home.shellAliases = with config.home.sessionVariables; {
     "..." = "../..";
     cf = "$EDITOR ${CONFIG}";
