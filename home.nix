@@ -79,6 +79,13 @@
     zoxide = { enable = true; };
     zsh = {
       enable = true;
+      completionInit = ''
+        autoload -U compinit
+        zstyle ':completion:*' menu select
+        zmodload zsh/complist
+        compinit -C
+        _comp_options+=(globdots) # Include hidden files in autocomplete:
+      '';
       # Adding this to login so that it's run after zshrc, where the zoxide
       # init script is run
       loginExtra = ''
@@ -90,6 +97,7 @@
         fi
       '';
       initExtra = builtins.readFile ./config/zsh/zshrc;
+      dotDir = ".config/zsh";
     };
   };
 

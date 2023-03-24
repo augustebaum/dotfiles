@@ -1,15 +1,8 @@
-#!/bin/zsh
-# Obtained from https://github.com/mattjmorrison/dotfiles/blob/master/zsh/zshrc
-
-# Autoload tab completion
-autoload -U compinit
-compinit -C
-
 # Completion settings
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' list-colors "$LS_COLORS"
 zstyle -e ':completion:*:(ssh|scp|sshfs|ping|telnet|nc|rsync):*' hosts '
-    reply=( ${=${${(M)${(f)"$(<~/.ssh/config)"}:#Host*}#Host }:#*\**} )'
+  reply=( ${=${${(M)${(f)"$(<~/.ssh/config)"}:#Host*}#Host }:#*\**} )'
 
 # Set the desired setup options man zshoptions
 # If command can't be executed, and command is name of a directory, cd to directory
@@ -70,17 +63,6 @@ bindkey '^R' history-incremental-search-backward
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^?' backward-delete-char
 bindkey '^H' backward-delete-char
-
-# Powered by https://github.com/jeffreytse/zsh-vi-mode
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-export ZVM_VI_EDITOR=nvim
-
-# Autocomplete options
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots) # Include hidden files in autocomplete:
 
 # Keyboard shortcuts
 function f() { fg }
