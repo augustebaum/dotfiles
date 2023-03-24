@@ -79,6 +79,16 @@
     zoxide = { enable = true; };
     zsh = {
       enable = true;
+      # Adding this to login so that it's run after zshrc, where the zoxide
+      # init script is run
+      loginExtra = ''
+        if command -v zf &> /dev/null
+        then
+          function __zoxide_zi() {
+            result="$(zoxide query -l -- "$@" | zf)" && cd "$result"
+          }
+        fi
+      '';
       initExtra = builtins.readFile ./config/zsh/zshrc;
     };
   };
