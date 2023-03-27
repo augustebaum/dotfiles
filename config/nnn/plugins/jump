@@ -9,5 +9,5 @@ if [ ! -p "$NNN_PIPE" ]; then
     exit 2
 fi
 
-odir="$(zoxide query -i --)"
+odir="$(zoxide query -l -- | zf)"
 printf "%s" "0c$odir" > "$NNN_PIPE"
