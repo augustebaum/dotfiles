@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, stylix, ... }:
 
 {
   # This value determines the Home Manager release that your
@@ -228,5 +228,19 @@
     gp = "git pull";
     gpp = "git push";
     gpf = "git push --force";
+  };
+
+  stylix = let
+    colorScheme = "catppuccin-frappe";
+    base16-schemes = pkgs.fetchFromGitHub {
+      owner = "tinted-theming";
+      repo = "base16-schemes";
+      rev = "42d74711418db38b08575336fc03f30bd3799d1d";
+      sha256 = "sha256-ZSul9NpLbRgMIla+IIijFwGWZhx+ShfY2KzNicLG8jY=";
+    };
+  in {
+    base16Scheme = "${base16-schemes}/${colorScheme}.yaml";
+    # Because I have to
+    image = "/Users/Auguste/Pictures/Background/enough.jpg";
   };
 }

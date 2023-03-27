@@ -14,7 +14,7 @@
     # synctex-editor-command = "gvim --remote-silent +%{line} %{input}";
 
     # In BW mode by default
-    recolor = true;
+    # recolor = true;
     # # When in BW mode, images still have color (buggy)
     # recolor-reverse-video = true;
     # # When in BW mode, file keeps its hue

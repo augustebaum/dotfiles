@@ -1,5 +1,5 @@
 {
-  theme = "base16_terminal";
+  # theme = "base16_terminal";
   editor = {
     auto-pairs = false;
     mouse = false;
