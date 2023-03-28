@@ -1,0 +1,1 @@
+- [ ] Divide scripts into sourceable/non-sourceable and automate aliasing.
