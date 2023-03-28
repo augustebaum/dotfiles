@@ -195,7 +195,6 @@
     md = "micromamba deactivate";
     mi = "micromamba install";
     ne = "nix-env";
-    n = "source ${toString ./config/scripts}/n";
     nd = "mkdir";
     nf = "touch";
     p = "pijul";
@@ -207,7 +206,11 @@
     tw = "taskwarrior-tui";
     v = "nvim";
     vi = "nvim";
+
+    # Scripts
+    n = "source ${toString ./config/scripts}/n";
     zat = "source ${toString ./config/scripts}/zat";
+    di = "${toString ./config/scripts}/di";
 
     # Git
     ga = "git add";
