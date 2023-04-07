@@ -7,6 +7,7 @@
     bufferline = "multiple";
     whitespace.render.tab = "all";
     rulers = [ 80 ];
+    soft-wrap.enable = true;
   };
 
   keys = let
