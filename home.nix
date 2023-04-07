@@ -89,6 +89,7 @@
       # Adding this to login so that it's run after zshrc, where the zoxide
       # init script is run
       loginExtra = ''
+        # Use `zf` with `zoxide`
         if command -v zf &> /dev/null
         then
           function __zoxide_zi() {
