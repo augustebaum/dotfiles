@@ -10,15 +10,8 @@
     # Font
     font = "Rec Mono Semicasual 15";
 
-    # synctex = true;
-    # synctex-editor-command = "gvim --remote-silent +%{line} %{input}";
-
     # In BW mode by default
     recolor = true;
-    # # When in BW mode, images still have color (buggy)
-    # recolor-reverse-video = true;
-    # # When in BW mode, file keeps its hue
-    # recolor-keephue = true;
   };
 
   mappings = {
@@ -37,5 +30,13 @@
     "<C-f>" = "follow specific";
   };
 
-  extraConfig = builtins.readFile ./zathurarc;
+  extraConfig = ''
+    # Flavours base16 color scheme
+    include flavours
+
+    unmap <C-n>
+    unmap <C-m>
+    unmap <C-u>
+    unmap <C-b>
+  '';
 }

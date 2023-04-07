@@ -1,7 +1,0 @@
-# Flavours base16 color scheme
-include flavours
-
-unmap <C-n>
-unmap <C-m>
-unmap <C-u>
-unmap <C-b>
