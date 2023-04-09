@@ -111,13 +111,13 @@
     SHARE = "${config.home.homeDirectory}/.local/share";
 
     EDITOR = "hx";
-    GIT_EDITOR = "${EDITOR}";
-    VISUAL = "${EDITOR}";
+    GIT_EDITOR = "$EDITOR";
+    VISUAL = "$EDITOR";
 
     LESS = "-imJMWR";
     PAGER = "less ${LESS}";
-    MANPAGER = "${PAGER}";
-    GIT_PAGER = "${PAGER}";
+    MANPAGER = "$PAGER";
+    GIT_PAGER = "$PAGER";
 
     BROWSER = "qutebrowser";
 
@@ -135,8 +135,8 @@
     DOOMDIR = "${CONFIG}/doom";
 
     ## flavours
-    FLAVOURS_DATA_DIRECTORY = "${SHARE}/flavours";
     FLAVOURS_CONFIG_FILE = "${CONFIG}/flavours/config.toml";
+    FLAVOURS_DATA_DIRECTORY = "${SHARE}/flavours";
 
     ## goku
     GOKU_EDN_CONFIG_FILE = "${CONFIG}/karabiner/karabiner.edn";
@@ -184,8 +184,8 @@
     cf = "$EDITOR ${CONFIG}";
     cl = "clear";
     cm = "chezmoi";
-    e = "${EDITOR}";
-    "e." = "e .";
+    e = "$EDITOR";
+    "e." = "$EDITOR .";
     emacs = "emacs -nw";
     gn = "nvim -c Neogit";
     hms =
