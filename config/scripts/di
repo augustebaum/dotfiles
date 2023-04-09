@@ -1,7 +1,11 @@
 #!/bin/sh
 
-diary_dir=~/Documents/Nextcloud/Notes/diary
+if [[ -z $DIARY_DIR ]]; then
+  echo "Environment variable 'DIARY_DIR' undefined!"
+  exit 1
+fi
+
 filename="$(date -u +%Y-%m-%d).md"
 
-file="$diary_dir/$filename"
+file="$DIARY_DIR/$filename"
 $EDITOR $file

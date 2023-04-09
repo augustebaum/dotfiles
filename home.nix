@@ -128,6 +128,12 @@
     LC_COLLATE = "C";
     LSCOLORS = "gxfxcxdxbxegedabagacad";
 
+    NEXTCLOUD_DIR = "${config.home.homeDirectory}/Documents/Nextcloud";
+
+    NOTES_DIR = "${NEXTCLOUD_DIR}/Notes";
+    DIARY_DIR = "${NOTES_DIR}/diary";
+    TODO_FILE = "${NOTES_DIR}/todo.md";
+
     ## cargo
     CARGO_HOME = "${CONFIG}/cargo";
 
