@@ -11,21 +11,24 @@
   # changes in each release.
   home.stateVersion = "23.05";
 
+  # For MacOS only!
   home.username = "Auguste";
   home.homeDirectory = /Users/Auguste;
 
   home.packages = with pkgs; [
     agedu
     cargo
-    dura
+    dura # Git tool for commiting unstaged code
     fd
     jq
     micromamba
     nixfmt
     ripgrep
-    tealdeer
+    tealdeer # Rewrite of tldr
     tree
     # tectonic
+
+    elan # Lean package manager
   ];
 
   programs = {
