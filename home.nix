@@ -174,6 +174,7 @@
   };
 
   home.sessionPath = [
+    (toString ./config/scripts)
     # Ideally I would add Rust programs to this config
     # rather than getting them here
     "${config.home.sessionVariables.CARGO_HOME}/bin"
@@ -213,8 +214,6 @@
 
     # Scripts
     n = "source ${toString ./config/scripts}/n";
-    zat = "source ${toString ./config/scripts}/zat";
-    di = "${toString ./config/scripts}/di";
 
     # Git
     ga = "git add";
