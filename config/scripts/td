@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [[ -z $TODO_FILE ]]; then
+  echo "Environment variable 'TODO_FILE' undefined!"
+  exit 1
+fi
+
+$EDITOR $TODO_FILE
