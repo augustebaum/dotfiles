@@ -1,0 +1,11 @@
+FPATH="$1"
+GUI="${GUI:-1}"
+
+if [ "$GUI" -ne 0 ] && which xdg-open >/dev/null 2>&1; then
+    xdg-open "${FPATH}" >/dev/null 2>&1 &
+    exit 0
+elif [ "$GUI" -ne 0 ] && which open >/dev/null 2>&1; then
+    open "${FPATH}" >/dev/null 2>&1 &
+    exit 0
+fi
+

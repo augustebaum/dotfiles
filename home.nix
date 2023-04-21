@@ -66,6 +66,7 @@
           z = "jump";
           g = "rec";
           h = "fzopen";
+          o = "open";
         };
       };
     };
