@@ -6,8 +6,12 @@
     auto-save = true;
     bufferline = "multiple";
     whitespace.render.tab = "all";
-    rulers = [ 80 ];
-    soft-wrap.enable = true;
+    text-width = 80;
+    soft-wrap = {
+      enable = true;
+      wrap-at-text-width = true;
+      max-indent-retain = 60;
+    };
   };
 
   keys = let
